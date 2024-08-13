@@ -1,15 +1,4 @@
 {
-    "name": "NAYAN-BOT",
-    "version": "5.2.1",
-    "description": "simple messenger bot",
-    "main": "",
-    "scripts": {
-        "start": "node --trace-warnings --use_strict --async-stack-traces utils/index.js",
-        "login": "node login",
-        "test": "node --trace-warnings --use_strict --async-stack-traces main"
-    },
-
-{
   "dependencies": {
     "@distube/ytdl-core": "^4.13.3",
     "axios": "^1.6.2",
