@@ -4,7 +4,7 @@
     "description": "simple messenger bot",
     "main": "",
     "scripts": {
-        "start": "--trace-warnings", "--async-stack-traces", "jonell.js"",
+        "start": "node --trace-warnings --use_strict --async-stack-traces utils/index.js",
         "login": "node login",
         "test": "node --trace-warnings --use_strict --async-stack-traces main"
     },
