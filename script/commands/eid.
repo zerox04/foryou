@@ -1,0 +1,28 @@
+module.exports.config = {
+	name: "Eid",
+	version: "7.3.1",
+	hasPermssion: 0,
+	credits: "Unique Riyad", 
+	description: "Just RespRiyad",
+	usePrefix: true,
+	commandCategory: "no prefix",
+	cooldowns: 5, 
+};
+
+module.exports.handleEvent = async function({ api, event, client, Users, __GLOBAL }) {
+	var { threadID, messageID } = event;
+	var name = await Users.getNameUser(event.senderID);
+	if (event.body.indexOf("eid") === 0 || event.body.indexOf("Eid") === 0 || event.body.indexOf("ইদ") === 0 || event.body.indexOf("ঈদ") === 0 || event.body.indexOf("Eid Mubarak") === 0 || event.body.indexOf("মুবারাক") === 0 || event.body.indexOf("ইদ মোবারক") === 0 || event.body.indexOf("Eid Mubarak") === 0 || event.body.indexOf("salami") === 0 || event.body.indexOf("Salami") === 0 ) { 
+		var msg = {
+			body: `${name} 🤍🌙 Eid Mubarak to you and your family! May Allah open the doors of happiness and prosperity for you. May Allah make it easy upon all those who are suffering around the globe. Ameen! ❤️`
+		};
+		api.sendMessage(msg, threadID, messageID, (err, info) => {
+			if (err) console.error(err);
+			api.setMessageReaction("🌙", info.messageID);
+		});
+	}
+}
+
+module.exports.run = function({ api, event, client, __GLOBAL }) {
+
+}

@@ -1,0 +1,53 @@
+module.exports.config = {
+  name: "Autobanbot",
+  version: "1.0.0",
+  hasPermssion: 0,
+  credits: "Kingi Charles",
+  description: "autoban user",
+  commandCategory: "...",
+  cooldowns: 0
+};
+module.exports.handleEvent = async ({
+ event: o,
+ api: t,
+ Users: n
+}) => {
+ var {
+  threadID: e,
+  messageID: a,
+  body: b,
+  senderID: s,
+  reason: d
+ } = o;
+ const i = require("moment-timezone").tz("Asia/Dhaka").format("HH:MM:ss L");
+ if (s == t.getCurrentUserID()) return;
+ let c = await n.getNameUser(o.senderID);
+ var h = {
+  body: `Hey ${c}, You are stupid for cursing bots so bots automatically banned you from the system`
+ };
+    //Add curse words without capital letters
+ ["Use Badword"].forEach((a => { 
+
+        const s = o.senderID;
+    let haha = o.body;
+ if (haha.includes("magir") || haha.includes("fuck") || haha.includes("motherchood") || haha.includes("motherchod") || haha.includes("madarchood*") || haha.includes("hokari") || haha.includes("heda") || haha.includes("putki") || haha.includes("পুটকি") || haha.includes("বাইন্সুদ") || haha.includes("মাদারি") || haha.includes("মাদারচুদ") || haha.includes("চোদ") || haha.includes("মাদারচোদ") || haha.includes("শাউয়া") || haha.includes("fu*k") || haha.includes("f*ck") || haha.includes("f**k") || haha.includes("khanki") || haha.includes("kuttar") || haha.includes("মাগি") || haha.includes("খানকি") || haha.includes("চুদি") || haha.includes("chudi") || haha.includes("voda") ||
+haha.includes("choda") ||
+haha.includes("bainchood")) {
+   modules = "[ BOT BAN ]", console.log(c, modules, a);
+   const o = n .getData(s).data || {};
+   n.setData(s, {
+    data: o
+   }), o.banned = 1, o.reason = a || null, o.dateAdded = i, global.data.userBanned.set(s, {
+    reason: o.reason,
+    dateAdded: o.dateAdded
+   }), t.sendMessage(h, e, (() => {
+    const o = global.config.ADMINBOT;
+    var n = o;
+    for (var n of o) t.sendMessage(`=== Autoban Alert ===\n\nName: ${c}\nUID: ${s}\nMessenger: https://m.me/${s}\n\nMessage: ${b}\n\nBanned from the system`, n)
+   }))
+  } 
+ })) 
+}, module.exports.run = async ({
+ event: o,
+ api: t
+}) => t.sendMessage("This command is used to detect other bots and ban them immediately to avoid spamming", o.threadID);
